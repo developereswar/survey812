@@ -1,0 +1,58 @@
+
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <label class="label">Email Id</label>
+            <div class="input-group">
+              <input type="text" class="form-control"  id="email" formControlName="email" name="email"  placeholder="Email">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="mdi mdi-check-circle-outline"></i>
+                </span>
+              </div>
+            </div>
+            <span class="alerts" *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">Email or Username is required!</span><br/>
+          </div>
+          <div class="form-group">
+            <label class="label">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" formControlName="password" placeholder="Password"  placeholder="*********">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="mdi mdi-check-circle-outline"></i>
+                </span>
+              </div>
+            </div>
+      <span class="alerts" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">Password is required!</span>
+          </div>
+          <div class="form-group">
+            <button  type="submit" name="submit" [disabled]="!loginForm.valid"  data-dismiss="modal"  class="btn btn-primary submit-btn btn-block">Login</button>
+          </div>
+     
+          <div class="text-block text-center my-3">
+            <span class="text-small font-weight-semibold">Not a member ?</span>
+            <a [routerLink]="['/register']" data-dismiss="modal"  class="text-black text-small">Create new account</a>
+            <P>
+              <span class="alerts">{{error}}</span>    <br/>    
+     
+            </P>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

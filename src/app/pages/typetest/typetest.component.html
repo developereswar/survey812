@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 card">
+      <div class="card-body">
+        <p>{{text}}</p>
+      </div>
+    </div>
+    <div class="col-md-6 card" style="padding:0;">
+      <div class="card-header" >
+          <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-success" (click)="testfunc('start')" *ngIf="timeout">Start Test</button>
+        </div>
+        <div class="col-md-5">
+          <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-info" *ngIf="!timeout"> &nbsp; <span>00 :</span>{{(sec < 10)? "0"+sec : sec}}</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>
+        </div>
+      </div>
+      </div>
+      <textarea rows="15" name="text" style="height:100%;" [disabled]="timeout" [(ngModel)]="comparetext">
+     </textarea>
+    </div>
+    <div class="mt-2 col-md-12 alert alert-dismissible alert-danger" *ngIf="result === 'fail'">
+      {{error}}  <button class="float-right btn btn-sm btn-light"  onClick="window.location.reload()">Restart</button>
+    </div>
+    <div class="mt-2 col-md-12 alert alert-dismissible alert-success" *ngIf="result === 'success'">
+        {{error}}
+    </div>
+  </div>
+</div>
