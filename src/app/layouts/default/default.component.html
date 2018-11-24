@@ -1,5 +1,5 @@
-<!-- <app-header></app-header> -->
-<div class="content">
+<app-header></app-header>
+<div class="content" (contextmenu)="onRightClick($event)">
     <router-outlet></router-outlet>
 </div>
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>
