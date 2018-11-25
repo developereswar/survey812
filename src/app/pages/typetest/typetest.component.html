@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 card">
+    <div class="col-md-12 card">
       <div class="card-body">
         <p>{{text}}</p>
       </div>
     </div>
-    <div class="col-md-6 card" style="padding:0;">
+    <div class="col-md-12 card" style="padding:0;">
       <div class="card-header" >
           <div class="row">
         <div class="col-md-12">
           <button class="btn btn-success" (click)="testfunc('start')" *ngIf="timeout">Start Test</button>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-2">
           <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <button class="btn btn-info" *ngIf="!timeout"> &nbsp; <span>00 :</span>{{(sec < 10)? "0"+sec : sec}}</button>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>
         </div>
       </div>

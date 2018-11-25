@@ -11,14 +11,31 @@ var user_controller = {
 
     },
     loginuser(userdata, callback) {
-  
-        let userQuery;
-        if(userdata.email){
-            userQuery = "SELECT * FROM register WHERE email=?"; }
-        if(userdata.username){
-            userQuery= "SELECT * FROM register WHERE username=?"; 
+        let error = {
+            "status": "failure",
+            "message": "Invalid Username && Password"
         }
-        return dbconfig.query(userQuery, [userdata.email], callback);
+        let userQuery;
+        if (userdata.email) {
+            userQuery = "SELECT * FROM register WHERE email=?";
+        }
+        if (userdata.username) {
+            userQuery = "SELECT * FROM register WHERE username=?";
+        }
+        dbconfig.query(userQuery, [userdata.email], (err, rows, fields) => {
+            if (err)
+            return callback(null, error)
+            if(rows){
+                var resultArray = Object.values(JSON.parse(JSON.stringify(rows)))
+                // console.log(resultArray)
+                let storedPassword = resultArray[0].password;
+                let decryptPassword = cryptr.decrypt(storedPassword)
+               if(decryptPassword === userdata.password){
+                   callback(error, resultArray);
+               }
+            }
+
+        });
     }
 }
 

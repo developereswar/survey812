@@ -652,7 +652,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-6 card\" style=\"padding:0;\">\n      <div class=\"card-header\" >\n          <div class=\"row\">\n        <div class=\"col-md-12\">\n          <button class=\"btn btn-success\" (click)=\"testfunc('start')\" *ngIf=\"timeout\">Start Test</button>\n        </div>\n        <div class=\"col-md-5\">\n          <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n        </div>\n        <div class=\"col-md-4\">\n          <button class=\"btn btn-info\" *ngIf=\"!timeout\"> &nbsp; <span>00 :</span>{{(sec < 10)? \"0\"+sec : sec}}</button>\n        </div>\n        <div class=\"col-md-3\">\n          <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button>\n        </div>\n      </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}}  <button class=\"float-right btn btn-sm btn-light\"  onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n        {{error}}\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-12 card\" style=\"padding:0;\">\n      <div class=\"card-header\" >\n          <div class=\"row\">\n        <div class=\"col-md-12\">\n          <button class=\"btn btn-success\" (click)=\"testfunc('start')\" *ngIf=\"timeout\">Start Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-info\" *ngIf=\"!timeout\"> &nbsp; <span>00 :</span>{{(sec < 10)? \"0\"+sec : sec}}</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button>\n        </div>\n      </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}}  <button class=\"float-right btn btn-sm btn-light\"  onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n        {{error}}\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -715,7 +715,7 @@ var TypetestComponent = /** @class */ (function () {
     };
     TypetestComponent.prototype.testfunc = function (e) {
         if ("start" === e) {
-            this.sec = 0;
+            this.sec = 120;
             this.timeout = false;
             this.intervalInitator();
         }

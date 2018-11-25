@@ -36,7 +36,7 @@ export class TypetestComponent implements OnInit {
   }
   testfunc(e) {
     if ("start" === e) {
-      this.sec = 0;
+      this.sec = 120;
       this.timeout = false;
       this.intervalInitator();
     }
