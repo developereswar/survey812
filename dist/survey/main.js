@@ -428,7 +428,7 @@ var DefaultComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"error-404\">\n  <div class=\"error-code m-b-10 m-t-20\">Get the answers you need <i class=\"fa fa-warning\"></i></div>\n  <h2 class=\"font-bold\">Oops 404! That page can’t be found.</h2>\n\n  <div class=\"error-desc\">\n      Sorry, but the page you are looking for was either not found or does not exist. .\n      <div><br/>\n      \n          <a href=\"/\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-home\"></span> Go back to Homepage</a>\n          &nbsp;\n          <a  [routerLink]=\"['/surveytest']\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-home\"></span> Let's Start Test</a>\n      </div>\n  </div>\n</div>"
+module.exports = "<div class=\"error-404\">\n  <div class=\"error-code m-b-10 m-t-20\">Get the answers you need <i class=\"fa fa-warning\"></i></div>\n  <h2 class=\"font-bold\">Oops 404! That page can’t be found.</h2>\n\n  <div class=\"error-desc\">\n      Sorry, but the page you are looking for was either not found or does not exist. .\n      <div><br/>\n      \n          <a [routerLink]=\"['/surveytest']\"  class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-home\"></span> Go back to Homepage</a>\n          &nbsp;\n          <a  [routerLink]=\"['/surveytest']\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-home\"></span> Let's Start Test</a>\n      </div>\n  </div>\n</div>"
 
 /***/ }),
 
