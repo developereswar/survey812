@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.use(express.static(path.join(__dirname, '/dist/survey/')));
+app.use(express.static(path.join(__dirname, '/dist/survey/')));
 
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname + "/dist/survey/"));
-// });
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname + "/dist/survey/"));
+});
