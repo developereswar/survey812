@@ -15,7 +15,7 @@
           <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-info" *ngIf="!timeout"> &nbsp; <span>00 :</span>{{(sec < 10)? "0"+sec : sec}}</button>
+          <button class="btn btn-info" *ngIf="!timeout"> &nbsp;{{sec}}</button>
         </div>
         <div class="col-md-2">
           <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>

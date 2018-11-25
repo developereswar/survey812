@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ["./typetest.component.scss"]
 })
 export class TypetestComponent implements OnInit {
+  public tmp = 2*60;
+  public time = this.tmp;
   public timer: any;
   public comparetext: any;
   public timeout: boolean = true;
-  public sec: number;
+  public sec: string;
   public intervalInitiator: any;
   public result: string = undefined;
   public error: string;
@@ -26,9 +28,14 @@ export class TypetestComponent implements OnInit {
   }
 
   loadingCount() {
-    if (this.sec !== 60) {
-      this.sec = this.sec + 1;
     
+    var c = this.time--;
+    var m = (c / 60) >> 0;
+    var s = (c - m * 60) + '';
+    console.log(m)
+    if (c != 0) {
+   
+    this.sec = m+':'+(s.length>1?'':'0')+s
     } else {
       clearInterval(this.intervalInitiator);
       this.timeout = true;
@@ -36,7 +43,6 @@ export class TypetestComponent implements OnInit {
   }
   testfunc(e) {
     if ("start" === e) {
-      this.sec = 120;
       this.timeout = false;
       this.intervalInitator();
     }

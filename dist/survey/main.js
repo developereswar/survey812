@@ -652,7 +652,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-12 card\" style=\"padding:0;\">\n      <div class=\"card-header\" >\n          <div class=\"row\">\n        <div class=\"col-md-12\">\n          <button class=\"btn btn-success\" (click)=\"testfunc('start')\" *ngIf=\"timeout\">Start Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-info\" *ngIf=\"!timeout\"> &nbsp; <span>00 :</span>{{(sec < 10)? \"0\"+sec : sec}}</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button>\n        </div>\n      </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}}  <button class=\"float-right btn btn-sm btn-light\"  onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n        {{error}}\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-12 card\" style=\"padding:0;\">\n      <div class=\"card-header\" >\n          <div class=\"row\">\n        <div class=\"col-md-12\">\n          <button class=\"btn btn-success\" (click)=\"testfunc('start')\" *ngIf=\"timeout\">Start Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-info\" *ngIf=\"!timeout\"> &nbsp;{{sec}}</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button>\n        </div>\n      </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}}  <button class=\"float-right btn btn-sm btn-light\"  onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n        {{error}}\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -693,6 +693,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TypetestComponent = /** @class */ (function () {
     function TypetestComponent(router) {
         this.router = router;
+        this.tmp = 2 * 60;
+        this.time = this.tmp;
         this.timeout = true;
         this.result = undefined;
         this.text = 'Aesop was one of the great Greek writers. He is best known for his fables, stories that have a moral. They teach us something about how we should live our lives. Aesop wrote thousands of these stories. Here are a few.The Wolf in Sheep Clothing.Once upon a time, a Wolf decided to disguise the way he looked.He thought it would help him get food more easily.He put on the skin of a sheep, then he went out with the flock into the pasture.Even the shepherd was fooled by his clever costume.In the evening, the shepherd put him in with the rest of the sheep.He closed the gate and made sure it was secure before he went to bed.In the middle of the night, he came back to the fold to get some meat for the next day.Instead of a sheep, though, he grabbed the Wolf, killing him instantly.Those who look to harm others will be harmed themselves.The Bat and the Weasel.A Bat fell on the ground and was caught by a Weasel.It begged the Weasel to spare its life, but the Weasel refused.It told the Bat that birds, by nature, were its enemy.The Bat assured him that it was not a bird, it was a mouse.The Weasel thought a moment, then set it free.A while later, the Bat fell again to the ground, and it was caught by another Weasel.It begged this Weasel not to eat him, either.The Weasel, though, said it did not like mice at all and would eat it.The Bat told the Weasel that it was not a mouse, but a bat.The second Weasel had no good answer, so he let it go.The Bat knew it is always wise to turn events to your advantage.The Lion and the Mouse.A sleeping Lion was woken up by a Mouse running over his face.He got up angrily and caught the scared little Mouse.He was about to kill the Mouse, but it said in its squeaky little voice, "If you would only spare my life, I would be sure to repay your kindness." The Lion laughed at such nonsense, but he let him go.A short time later, though, the Lion was caught by some hunters.They bound him by ropes to the ground.The Mouse recognized his roar, and he rushed over and gnawed the rope with his teeth, setting the Lion free.The Mouse said "You laughed at the idea of my ever being able to help you. Now you know that it is possible for even a small little Mouse to help a great big Lion.';
@@ -705,8 +707,12 @@ var TypetestComponent = /** @class */ (function () {
         }, 1000);
     };
     TypetestComponent.prototype.loadingCount = function () {
-        if (this.sec !== 60) {
-            this.sec = this.sec + 1;
+        var c = this.time--;
+        var m = (c / 60) >> 0;
+        var s = (c - m * 60) + '';
+        console.log(m);
+        if (c != 0) {
+            this.sec = m + ':' + (s.length > 1 ? '' : '0') + s;
         }
         else {
             clearInterval(this.intervalInitiator);
@@ -715,7 +721,6 @@ var TypetestComponent = /** @class */ (function () {
     };
     TypetestComponent.prototype.testfunc = function (e) {
         if ("start" === e) {
-            this.sec = 120;
             this.timeout = false;
             this.intervalInitator();
         }
