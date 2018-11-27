@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./typetest.component.scss"]
 })
 export class TypetestComponent implements OnInit {
+  public showmodal:boolean = false;
   public tmp = 2*60;
   public time = this.tmp;
   public timer: any;
@@ -37,6 +38,7 @@ export class TypetestComponent implements OnInit {
    
     this.sec = m+':'+(s.length>1?'':'0')+s
     } else {
+      this.timeout = false;
       clearInterval(this.intervalInitiator);
       this.timeout = true;
     }

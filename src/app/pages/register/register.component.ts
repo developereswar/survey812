@@ -25,6 +25,11 @@ export class RegisterComponent implements OnInit {
 
    register(){
     let authorData = this.RegisterForm.value;
-    this.serv.register(authorData);
+    this.serv.register(authorData).subscribe(data => {
+      if(data){
+        // let d = data.status;
+      // console.log(d)
+      }
+    });
   }
 }
