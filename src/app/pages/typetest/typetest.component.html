@@ -6,46 +6,56 @@
       </div>
     </div>
     <div class="col-md-12 card" style="padding:0;">
-      <div class="card-header" >
-          <div class="row">
-        <div class="col-md-12">
-          <button class="btn btn-success" (click)="testfunc('start')" *ngIf="timeout">Start Test</button>
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-success" (click)="testfunc('start')" *ngIf="timeout">Start Test</button>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-info" *ngIf="!timeout"> &nbsp;{{sec}}</button>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-info" *ngIf="!timeout"> &nbsp;{{sec}}</button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>
-        </div>
-      </div>
       </div>
       <textarea rows="15" name="text" style="height:100%;" [disabled]="timeout" [(ngModel)]="comparetext">
      </textarea>
     </div>
     <div class="mt-2 col-md-12 alert alert-dismissible alert-danger" *ngIf="result === 'fail'">
-      {{error}}  <button class="float-right btn btn-sm btn-light"  onClick="window.location.reload()">Restart</button>
+      {{error}} <button class="float-right btn btn-sm btn-light" onClick="window.location.reload()">Restart</button>
     </div>
     <div class="mt-2 col-md-12 alert alert-dismissible alert-success" *ngIf="result === 'success'">
-        {{error}}
+      {{error}}
     </div>
   </div>
 </div>
 
 
+<!-- The Modal -->
+<div class="modal" [ngClass]="{'show':showmodal, 'modal-back':showmodal}" [style.display]="showmodal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-<div class="modal-backdrop fade in" [style.display]="showModal ? 'block' : 'none'"></div>
-  <div class="modal" tabindex="-1" role="dialog" style="display: block" [style.display]="showModal ? 'block' : 'none'">
-     <div class="modal-dialog">
-        <div class="modal-popup">
-          <div class="popup-title">
-            <span>{{title}} </span>
-            <i class="icon-cancel fr" data-dismiss="modal" aria-label="Close" (click)="cancelAction()"></i>
-            <p *ngIf="subTitle">{{subTitle}}</p>
-          </div>
-        <ng-content></ng-content>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
   </div>
 </div>

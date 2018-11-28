@@ -38,6 +38,7 @@ export class TypetestComponent implements OnInit {
    
     this.sec = m+':'+(s.length>1?'':'0')+s
     } else {
+      this.showmodal = true;
       this.timeout = false;
       clearInterval(this.intervalInitiator);
       this.timeout = true;

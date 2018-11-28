@@ -7,3 +7,12 @@
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
+
+  .show{    display: block;
+    padding-right: 15px;
+    
+    }
+
+    .modal-back {
+background-color: rgba(0,0,0,0.5);
+    }
