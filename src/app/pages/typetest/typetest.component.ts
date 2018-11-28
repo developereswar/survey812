@@ -54,7 +54,7 @@ export class TypetestComponent implements OnInit {
       clearInterval(this.intervalInitiator);
     }
   }
-
+  
   submitTest() {
     let len = this.text.split(" ").length;
 
