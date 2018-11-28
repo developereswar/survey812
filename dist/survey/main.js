@@ -628,7 +628,12 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.ngOnInit = function () { };
     RegisterComponent.prototype.register = function () {
         var authorData = this.RegisterForm.value;
-        this.serv.register(authorData);
+        this.serv.register(authorData).subscribe(function (data) {
+            if (data) {
+                // let d = data.status;
+                // console.log(d)
+            }
+        });
     };
     RegisterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -652,7 +657,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-12 card\" style=\"padding:0;\">\n      <div class=\"card-header\" >\n          <div class=\"row\">\n        <div class=\"col-md-12\">\n          <button class=\"btn btn-success\" (click)=\"testfunc('start')\" *ngIf=\"timeout\">Start Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-info\" *ngIf=\"!timeout\"> &nbsp;{{sec}}</button>\n        </div>\n        <div class=\"col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button>\n        </div>\n      </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}}  <button class=\"float-right btn btn-sm btn-light\"  onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n        {{error}}\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 card\">\n      <div class=\"card-body\">\n        <p>{{text}}</p>\n      </div>\n    </div>\n    <div class=\"col-md-12 card\" style=\"padding:0;\">\n      <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-md-10\" *ngIf=\"timeout\">\n              <h5>\n                Press Start Button TO Start Your Test\n              </h5>\n            </div>\n              <div class=\"col-md-2\" *ngIf=\"timeout\">\n                  <button class=\"btn btn-success\" (click)=\"testfunc('start')\" >Start Test</button>\n                </div>\n          <div class=\"col-md-6\"  *ngIf=\"!timeout\">\n              <button type=\"button\" class=\"btn btn-primary btn-lg\">\n                  Timer :  <span class=\"badge badge-light\">{{sec}}</span>\n                </button>\n          </div>\n          <div class=\"col-md-6 float-right text-right\"  *ngIf=\"!timeout\">\n            <button class=\"btn btn-success\" (click)=\"submitTest()\" *ngIf=\"!timeout\">Submit</button> &nbsp;\n            <button class=\"btn btn-danger\" (click)=\"testfunc('stop')\" *ngIf=\"!timeout\">Cancel Test</button>\n          </div>\n        </div>\n      </div>\n      <textarea rows=\"15\" name=\"text\" style=\"height:100%;\" [disabled]=\"timeout\" [(ngModel)]=\"comparetext\">\n     </textarea>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-danger\" *ngIf=\"result === 'fail'\">\n      {{error}} <button class=\"float-right btn btn-sm btn-light\" onClick=\"window.location.reload()\">Restart</button>\n    </div>\n    <div class=\"mt-2 col-md-12 alert alert-dismissible alert-success\" *ngIf=\"result === 'success'\">\n      {{error}}\n    </div>\n  </div>\n</div>\n\n\n<!-- The Modal -->\n<div class=\"modal\" [ngClass]=\"{'show':showmodal, 'modal-back':showmodal}\" [style.display]=\"showmodal ? 'block' : 'none'\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n\n      <!-- Modal Header -->\n      <!-- <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Mo</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div> -->\n\n      <!-- Modal body -->\n      <div class=\"modal-body text-center\">\n        <h4>\n          Your ranking in last 24h\n        </h4>\n        <p class=\"text-success\">\n          {{message.ranking}}\n        </p>\n        <h3>\n          You're better than\n        </h3>\n        <h2 class=\"text-success\">\n          {{message.score}}\n        </h2>\n        <p>\n          of all users\n          </p>\n          <p *ngIf=\"message.showReg\">\n            To Register Click Here...\n          </p>\n          <button *ngIf=\"message.showReg\" [routerLink]=\"['/register']\"  class=\"btn btn-success\">\n            Register\n          </button>\n      \n            <button *ngIf=\"!message.showReg\" [routerLink]=\"['/']\"  class=\"btn btn-danger\">\n              Try Again\n            </button>\n      </div>\n\n      <!-- Modal footer -->\n      <!-- <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-danger\" onClick=\"window.location.reload()\" data-dismiss=\"modal\">Close</button>\n      </div> -->\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -663,7 +668,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card-body {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently\n                                    supported by Chrome and Opera */ }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2Vzd2FyL1Byb2plY3Qvc3J1dmV5LW1hc3Rlci9zcmMvYXBwL3BhZ2VzL3R5cGV0ZXN0L3R5cGV0ZXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksNEJBQTJCO0VBQUUsZ0JBQWdCO0VBQzNDLDBCQUF5QjtFQUFFLFlBQVk7RUFDWixvQkFBb0I7RUFDNUMsdUJBQXNCO0VBQUUsYUFBYTtFQUNwQyxzQkFBcUI7RUFBRSw0QkFBNEI7RUFDL0Msa0JBQWlCO0VBQUU7b0VBQ21DLEVBQ2pFIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvdHlwZXRlc3QvdHlwZXRlc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZC1ib2R5IHtcbiAgICAtd2Via2l0LXRvdWNoLWNhbGxvdXQ6IG5vbmU7IC8qIGlPUyBTYWZhcmkgKi9cbiAgICAgIC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7IC8qIFNhZmFyaSAqL1xuICAgICAgIC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTsgLyogS29ucXVlcm9yIEhUTUwgKi9cbiAgICAgICAgIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7IC8qIEZpcmVmb3ggKi9cbiAgICAgICAgICAtbXMtdXNlci1zZWxlY3Q6IG5vbmU7IC8qIEludGVybmV0IEV4cGxvcmVyL0VkZ2UgKi9cbiAgICAgICAgICAgICAgdXNlci1zZWxlY3Q6IG5vbmU7IC8qIE5vbi1wcmVmaXhlZCB2ZXJzaW9uLCBjdXJyZW50bHlcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN1cHBvcnRlZCBieSBDaHJvbWUgYW5kIE9wZXJhICovXG4gIH0iXX0= */"
+module.exports = ".card-body {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently\n                                    supported by Chrome and Opera */ }\n\n.show {\n  display: block;\n  padding-right: 15px; }\n\n.modal-back {\n  background-color: rgba(0, 0, 0, 0.5); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2Vzd2FyL1Byb2plY3Qvc3J1dmV5LW1hc3Rlci9zcmMvYXBwL3BhZ2VzL3R5cGV0ZXN0L3R5cGV0ZXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksNEJBQTJCO0VBQUUsZ0JBQWdCO0VBQzNDLDBCQUF5QjtFQUFFLFlBQVk7RUFDWixvQkFBb0I7RUFDNUMsdUJBQXNCO0VBQUUsYUFBYTtFQUNwQyxzQkFBcUI7RUFBRSw0QkFBNEI7RUFDL0Msa0JBQWlCO0VBQUU7b0VBQ21DLEVBQ2pFOztBQUVEO0VBQVUsZUFBYztFQUN0QixvQkFBbUIsRUFFbEI7O0FBRUQ7RUFDSixxQ0FBaUMsRUFDNUIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy90eXBldGVzdC90eXBldGVzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJkLWJvZHkge1xuICAgIC13ZWJraXQtdG91Y2gtY2FsbG91dDogbm9uZTsgLyogaU9TIFNhZmFyaSAqL1xuICAgICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTsgLyogU2FmYXJpICovXG4gICAgICAgLWtodG1sLXVzZXItc2VsZWN0OiBub25lOyAvKiBLb25xdWVyb3IgSFRNTCAqL1xuICAgICAgICAgLW1vei11c2VyLXNlbGVjdDogbm9uZTsgLyogRmlyZWZveCAqL1xuICAgICAgICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTsgLyogSW50ZXJuZXQgRXhwbG9yZXIvRWRnZSAqL1xuICAgICAgICAgICAgICB1c2VyLXNlbGVjdDogbm9uZTsgLyogTm9uLXByZWZpeGVkIHZlcnNpb24sIGN1cnJlbnRseVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3VwcG9ydGVkIGJ5IENocm9tZSBhbmQgT3BlcmEgKi9cbiAgfVxuXG4gIC5zaG93eyAgICBkaXNwbGF5OiBibG9jaztcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xuICAgIFxuICAgIH1cblxuICAgIC5tb2RhbC1iYWNrIHtcbmJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcbiAgICB9Il19 */"
 
 /***/ }),
 
@@ -693,10 +698,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TypetestComponent = /** @class */ (function () {
     function TypetestComponent(router) {
         this.router = router;
+        this.showmodal = false;
         this.tmp = 2 * 60;
         this.time = this.tmp;
         this.timeout = true;
-        this.result = undefined;
+        this.message = { "ranking": 'knwe', "score": 12, "showReg": 12.12 };
         this.text = 'Aesop was one of the great Greek writers. He is best known for his fables, stories that have a moral. They teach us something about how we should live our lives. Aesop wrote thousands of these stories. Here are a few.The Wolf in Sheep Clothing.Once upon a time, a Wolf decided to disguise the way he looked.He thought it would help him get food more easily.He put on the skin of a sheep, then he went out with the flock into the pasture.Even the shepherd was fooled by his clever costume.In the evening, the shepherd put him in with the rest of the sheep.He closed the gate and made sure it was secure before he went to bed.In the middle of the night, he came back to the fold to get some meat for the next day.Instead of a sheep, though, he grabbed the Wolf, killing him instantly.Those who look to harm others will be harmed themselves.The Bat and the Weasel.A Bat fell on the ground and was caught by a Weasel.It begged the Weasel to spare its life, but the Weasel refused.It told the Bat that birds, by nature, were its enemy.The Bat assured him that it was not a bird, it was a mouse.The Weasel thought a moment, then set it free.A while later, the Bat fell again to the ground, and it was caught by another Weasel.It begged this Weasel not to eat him, either.The Weasel, though, said it did not like mice at all and would eat it.The Bat told the Weasel that it was not a mouse, but a bat.The second Weasel had no good answer, so he let it go.The Bat knew it is always wise to turn events to your advantage.The Lion and the Mouse.A sleeping Lion was woken up by a Mouse running over his face.He got up angrily and caught the scared little Mouse.He was about to kill the Mouse, but it said in its squeaky little voice, "If you would only spare my life, I would be sure to repay your kindness." The Lion laughed at such nonsense, but he let him go.A short time later, though, the Lion was caught by some hunters.They bound him by ropes to the ground.The Mouse recognized his roar, and he rushed over and gnawed the rope with his teeth, setting the Lion free.The Mouse said "You laughed at the idea of my ever being able to help you. Now you know that it is possible for even a small little Mouse to help a great big Lion.';
     }
     TypetestComponent.prototype.ngOnInit = function () { };
@@ -715,6 +721,8 @@ var TypetestComponent = /** @class */ (function () {
             this.sec = m + ':' + (s.length > 1 ? '' : '0') + s;
         }
         else {
+            this.showmodal = true;
+            this.timeout = false;
             clearInterval(this.intervalInitiator);
             this.timeout = true;
         }
@@ -732,21 +740,25 @@ var TypetestComponent = /** @class */ (function () {
     };
     TypetestComponent.prototype.submitTest = function () {
         var len = this.text.split(" ").length;
+        clearInterval(this.intervalInitiator);
+        this.showmodal = true;
         if (this.comparetext == undefined) {
-            this.result = "fail";
-            this.error = "Please Try Again";
+            this.showmodal = true;
+            this.message.ranking = Math.floor(Math.random() * 0) + 0;
+            this.message.score = 0;
+            this.message.showReg = false;
         }
         else {
             var ans = this.comparetext.split(" ").length;
-            if (ans === len) {
-                this.result = "success";
-                var redirect_1 = this.router.navigate(['/register']);
-                this.error = "4.5/5 You Did Good Job.";
-                setTimeout(function () { redirect_1; }, 2000);
+            if (ans <= 200) {
+                this.message.ranking = Math.floor(Math.random() * 10) + 0;
+                this.message.score = Math.floor(Math.random() * 60) + 50;
+                this.message.showReg = true;
             }
             else {
-                this.result = "fail";
-                this.error = "Please Try Again";
+                this.message.ranking = Math.floor(Math.random() * 20) + 30;
+                this.message.score = Math.random() * 10 + 50;
+                this.message.showReg = false;
             }
         }
     };

@@ -8,17 +8,22 @@
     <div class="col-md-12 card" style="padding:0;">
       <div class="card-header">
         <div class="row">
-          <div class="col-md-12">
-            <button class="btn btn-success" (click)="testfunc('start')" *ngIf="timeout">Start Test</button>
+            <div class="col-md-10" *ngIf="timeout">
+              <h5>
+                Press Start Button TO Start Your Test
+              </h5>
+            </div>
+              <div class="col-md-2" *ngIf="timeout">
+                  <button class="btn btn-success" (click)="testfunc('start')" >Start Test</button>
+                </div>
+          <div class="col-md-6"  *ngIf="!timeout">
+              <button type="button" class="btn btn-primary btn-lg">
+                  Timer :  <span class="badge badge-light">{{sec}}</span>
+                </button>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-6 float-right text-right"  *ngIf="!timeout">
+            <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button> &nbsp;
             <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
-          </div>
-          <div class="col-md-2">
-            <button class="btn btn-info" *ngIf="!timeout"> &nbsp;{{sec}}</button>
-          </div>
-          <div class="col-md-2">
-            <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button>
           </div>
         </div>
       </div>
@@ -41,20 +46,44 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
+      <!-- <div class="modal-header">
+        <h4 class="modal-title">Mo</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+      </div> -->
 
       <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
+      <div class="modal-body text-center">
+        <h4>
+          Your ranking in last 24h
+        </h4>
+        <p class="text-success">
+          {{message.ranking}}
+        </p>
+        <h3>
+          You're better than
+        </h3>
+        <h2 class="text-success">
+          {{message.score}}
+        </h2>
+        <p>
+          of all users
+          </p>
+          <p *ngIf="message.showReg">
+            To Register Click Here...
+          </p>
+          <button *ngIf="message.showReg" [routerLink]="['/register']"  class="btn btn-success">
+            Register
+          </button>
+      
+            <button *ngIf="!message.showReg" [routerLink]="['/']"  class="btn btn-danger">
+              Try Again
+            </button>
       </div>
 
       <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onClick="window.location.reload()" data-dismiss="modal">Close</button>
+      </div> -->
 
     </div>
   </div>
