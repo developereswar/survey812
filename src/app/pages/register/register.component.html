@@ -67,8 +67,22 @@
 						<span class="alerts" *ngIf="!RegisterForm.controls['cpassword'].valid && RegisterForm.controls['cpassword'].touched">Confirm Password is required!</span>
 					</div>
 
+
+					<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Address</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<textarea type="text" class="form-control" formControlName="address" name="address" id="address" placeholder="Address">
+
+									</textarea>
+								</div>
+							</div>
+							<span class="alerts" *ngIf="!RegisterForm.controls['address'].valid && RegisterForm.controls['address'].touched">Address required!</span>
+						</div>
+
 					<div class="form-group ">
-						<button type="submit" id="button" [disabled]="!RegisterForm.valid" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+						<button type="submit" id="button" [disabled]="!RegisterForm.valid" [routerLink]="['/']" class="btn btn-primary btn-lg btn-block login-button">Register</button>
 					</div>
 
 				</form>
