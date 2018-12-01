@@ -42,7 +42,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/components/header/header.component.ts");
 /* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
 /* harmony import */ var _pages_register_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/register/register.component */ "./src/app/pages/register/register.component.ts");
-/* harmony import */ var _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layouts/default/default.component */ "./src/app/layouts/default/default.component.ts");
+/* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/dashboard/dashboard.component */ "./src/app/pages/dashboard/dashboard.component.ts");
+/* harmony import */ var _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layouts/default/default.component */ "./src/app/layouts/default/default.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,11 +58,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 // loyout
 
 var routes = [
     {
-        component: _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_8__["DefaultComponent"],
+        component: _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_9__["DefaultComponent"],
         path: '',
         children: [
             {
@@ -71,6 +73,10 @@ var routes = [
             {
                 path: 'surveytest',
                 component: _pages_typetest_typetest_component__WEBPACK_IMPORTED_MODULE_4__["TypetestComponent"]
+            },
+            {
+                path: 'dashboard',
+                component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"]
             }
         ]
     },
@@ -97,12 +103,13 @@ var AppRoutingModule = /** @class */ (function () {
 
 var Components = [
     _pages_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"],
-    _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_8__["DefaultComponent"],
+    _layouts_default_default_component__WEBPACK_IMPORTED_MODULE_9__["DefaultComponent"],
     _pages_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"],
     _pages_register_register_component__WEBPACK_IMPORTED_MODULE_7__["RegisterComponent"],
     _pages_typetest_typetest_component__WEBPACK_IMPORTED_MODULE_4__["TypetestComponent"],
     _components_header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"],
-    _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"]
+    _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
+    _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"]
 ];
 
 
@@ -415,6 +422,69 @@ var DefaultComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], DefaultComponent);
     return DefaultComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/dashboard/dashboard.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/dashboard/dashboard.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <!-- Nav tabs -->\n    <div class=\"card border-primary colms\">\n      <div class=\"card-header \">\n        <ul class=\"nav nav-tabs\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#home\">Your Account</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#menu1\">Hits</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#menu2\">Qualifications</a>\n          </li>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"tab-content\">\n          <div class=\"tab-pane active container\" id=\"home\">\n              <div class=\"container emp-profile\">\n                  <form method=\"post\">\n                      <div class=\"row\">\n                          <div class=\"col-md-4\">\n                              <div class=\"profile-img\">\n                                  <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog\" alt=\"\"/>\n                                  <div class=\"file btn btn-lg btn-primary\">\n                                      Change Photo\n                                      <input type=\"file\" name=\"file\"/>\n                                  </div>\n                              </div>\n                          </div>\n                          <div class=\"col-md-6\">\n                              <div class=\"profile-head\">\n                                          <h5>\n                                              Kshiti Ghelani\n                                          </h5>\n                                          <h6>\n                                              Web Developer and Designer\n                                          </h6>\n                                          <p class=\"proile-rating\">RANKINGS : <span>8/10</span></p>\n                                  <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n                                      <li class=\"nav-item\">\n                                          <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-selected=\"true\">About</a>\n                                      </li>\n                                      <li class=\"nav-item\">\n                                          <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" aria-selected=\"false\">Timeline</a>\n                                      </li>\n                                  </ul>\n                              </div>\n                          </div>\n                          <div class=\"col-md-2\">\n                              <input type=\"submit\" class=\"profile-edit-btn\" name=\"btnAddMore\" value=\"Edit Profile\"/>\n                          </div>\n                      </div>\n                      <div class=\"row\">\n                          <div class=\"col-md-4\">\n                              <div class=\"profile-work\">\n                                  <p>WORK LINK</p>\n                                  <a href=\"\">Website Link</a><br/>\n                                  <a href=\"\">Bootsnipp Profile</a><br/>\n                                  <a href=\"\">Bootply Profile</a>\n                                  <p>SKILLS</p>\n                                  <a href=\"\">Web Designer</a><br/>\n                                  <a href=\"\">Web Developer</a><br/>\n                                  <a href=\"\">WordPress</a><br/>\n                                  <a href=\"\">WooCommerce</a><br/>\n                                  <a href=\"\">PHP, .Net</a><br/>\n                              </div>\n                          </div>\n                          <div class=\"col-md-8\">\n                              <div class=\"tab-content profile-tab\" id=\"myTabContent\">\n                                  <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>User Id</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>Kshiti123</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Name</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>Kshiti Ghelani</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Email</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>kshitighelani@gmail.com</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Phone</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>123 456 7890</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Profession</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>Web Developer and Designer</p>\n                                                  </div>\n                                              </div>\n                                  </div>\n                                  <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Experience</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>Expert</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Hourly Rate</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>10$/hr</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Total Projects</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>230</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>English Level</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>Expert</p>\n                                                  </div>\n                                              </div>\n                                              <div class=\"row\">\n                                                  <div class=\"col-md-6\">\n                                                      <label>Availability</label>\n                                                  </div>\n                                                  <div class=\"col-md-6\">\n                                                      <p>6 months</p>\n                                                  </div>\n                                              </div>\n                                      <div class=\"row\">\n                                          <div class=\"col-md-12\">\n                                              <label>Your Bio</label><br/>\n                                              <p>Your detail description</p>\n                                          </div>\n                                      </div>\n                                  </div>\n                              </div>\n                          </div>\n                      </div>\n                  </form>           \n              </div>\n          </div>\n          <div class=\"tab-pane container\" id=\"menu1\"> you clicked Hits...</div>\n          <div class=\"tab-pane container\" id=\"menu2\"> you clicked Qualifications...</div>\n        </div>\n      </div>\n    </div>\n\n\n    <!-- Tab panes -->\n\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/pages/dashboard/dashboard.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/dashboard/dashboard.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tab-content {\n  width: 100%; }\n\n.colms {\n  width: 100%;\n  margin: 0;\n  background: #f9f9f9; }\n\n.active {\n  background: transparent !important;\n  border-top: 0px;\n  border-left: 0;\n  border-right: 0; }\n\n.nav-tabs {\n  border-bottom: none !important; }\n\n.nav-tabs li a {\n  border: none !important; }\n\n.profile-img {\n  text-align: center; }\n\n.profile-img img {\n  width: 70%;\n  height: 100%; }\n\n.profile-img .file {\n  position: relative;\n  overflow: hidden;\n  margin-top: -20%;\n  width: 70%;\n  border: none;\n  border-radius: 0;\n  font-size: 15px;\n  background: #212529b8; }\n\n.profile-img .file input {\n  position: absolute;\n  opacity: 0;\n  right: 0;\n  top: 0; }\n\n.profile-head h5 {\n  color: #333; }\n\n.profile-head h6 {\n  color: #0062cc; }\n\n.profile-edit-btn {\n  border: none;\n  border-radius: 1.5rem;\n  width: 70%;\n  padding: 2%;\n  font-weight: 600;\n  color: #6c757d;\n  cursor: pointer; }\n\n.proile-rating {\n  font-size: 12px;\n  color: #818182;\n  margin-top: 5%; }\n\n.proile-rating span {\n  color: #495057;\n  font-size: 15px;\n  font-weight: 600; }\n\n.profile-head .nav-tabs {\n  margin-bottom: 5%; }\n\n.profile-head .nav-tabs .nav-link {\n  font-weight: 600;\n  border: none; }\n\n.profile-head .nav-tabs .nav-link.active {\n  border: none;\n  border-bottom: 2px solid #0062cc; }\n\n.profile-work {\n  padding: 14%;\n  margin-top: -15%; }\n\n.profile-work p {\n  font-size: 12px;\n  color: #818182;\n  font-weight: 600;\n  margin-top: 10%; }\n\n.profile-work a {\n  text-decoration: none;\n  color: #495057;\n  font-weight: 600;\n  font-size: 14px; }\n\n.profile-work ul {\n  list-style: none; }\n\n.profile-tab label {\n  font-weight: 600; }\n\n.profile-tab p {\n  font-weight: 600;\n  color: #0062cc; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2Vzd2FyL1Byb2plY3Qvc3J1dmV5LW1hc3Rlci9zcmMvYXBwL3BhZ2VzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBYSxZQUFXLEVBQUc7O0FBRTNCO0VBQ0ksWUFBVztFQUNYLFVBQVM7RUFDVCxvQkFBbUIsRUFFdEI7O0FBQ0Q7RUFFSSxtQ0FBa0M7RUFDbEMsZ0JBQWU7RUFDZixlQUFjO0VBQ2QsZ0JBQWUsRUFDbEI7O0FBRUQ7RUFDSSwrQkFBOEIsRUFDakM7O0FBRUQ7RUFDSSx3QkFBc0IsRUFDekI7O0FBVUQ7RUFDSSxtQkFBa0IsRUFDckI7O0FBQ0Q7RUFDSSxXQUFVO0VBQ1YsYUFBWSxFQUNmOztBQUNEO0VBQ0ksbUJBQWtCO0VBQ2xCLGlCQUFnQjtFQUNoQixpQkFBZ0I7RUFDaEIsV0FBVTtFQUNWLGFBQVk7RUFDWixpQkFBZ0I7RUFDaEIsZ0JBQWU7RUFDZixzQkFBcUIsRUFDeEI7O0FBQ0Q7RUFDSSxtQkFBa0I7RUFDbEIsV0FBVTtFQUNWLFNBQVE7RUFDUixPQUFNLEVBQ1Q7O0FBQ0Q7RUFDSSxZQUFXLEVBQ2Q7O0FBQ0Q7RUFDSSxlQUFjLEVBQ2pCOztBQUNEO0VBQ0ksYUFBWTtFQUNaLHNCQUFxQjtFQUNyQixXQUFVO0VBQ1YsWUFBVztFQUNYLGlCQUFnQjtFQUNoQixlQUFjO0VBQ2QsZ0JBQWUsRUFDbEI7O0FBQ0Q7RUFDSSxnQkFBZTtFQUNmLGVBQWM7RUFDZCxlQUFjLEVBQ2pCOztBQUNEO0VBQ0ksZUFBYztFQUNkLGdCQUFlO0VBQ2YsaUJBQWdCLEVBQ25COztBQUNEO0VBQ0ksa0JBQWdCLEVBQ25COztBQUNEO0VBQ0ksaUJBQWU7RUFDZixhQUFZLEVBQ2Y7O0FBQ0Q7RUFDSSxhQUFZO0VBQ1osaUNBQStCLEVBQ2xDOztBQUNEO0VBQ0ksYUFBWTtFQUNaLGlCQUFnQixFQUNuQjs7QUFDRDtFQUNJLGdCQUFlO0VBQ2YsZUFBYztFQUNkLGlCQUFnQjtFQUNoQixnQkFBZSxFQUNsQjs7QUFDRDtFQUNJLHNCQUFxQjtFQUNyQixlQUFjO0VBQ2QsaUJBQWdCO0VBQ2hCLGdCQUFlLEVBQ2xCOztBQUNEO0VBQ0ksaUJBQWdCLEVBQ25COztBQUNEO0VBQ0ksaUJBQWdCLEVBQ25COztBQUNEO0VBQ0ksaUJBQWdCO0VBQ2hCLGVBQWMsRUFDakIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRhYi1jb250ZW50e3dpZHRoOiAxMDAlO31cblxuLmNvbG1ze1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbjogMDtcbiAgICBiYWNrZ3JvdW5kOiAjZjlmOWY5O1xuICAgIFxufVxuLmFjdGl2ZXtcbiAgIFxuICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgYm9yZGVyLXRvcDogMHB4O1xuICAgIGJvcmRlci1sZWZ0OiAwO1xuICAgIGJvcmRlci1yaWdodDogMDtcbn1cblxuLm5hdi10YWJze1xuICAgIGJvcmRlci1ib3R0b206IG5vbmUgIWltcG9ydGFudDtcbn1cblxuLm5hdi10YWJzIGxpIGF7XG4gICAgYm9yZGVyOm5vbmUgIWltcG9ydGFudDtcbn1cblxuXG4uZW1wLXByb2ZpbGV7XG4gICAgLy8gcGFkZGluZzogMyU7XG4gICAgLy8gbWFyZ2luLXRvcDogMyU7XG4gICAgLy8gbWFyZ2luLWJvdHRvbTogMyU7XG4gICAgLy8gYm9yZGVyLXJhZGl1czogMC41cmVtO1xuICAgIC8vIGJhY2tncm91bmQ6ICNmZmY7XG59XG4ucHJvZmlsZS1pbWd7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnByb2ZpbGUtaW1nIGltZ3tcbiAgICB3aWR0aDogNzAlO1xuICAgIGhlaWdodDogMTAwJTtcbn1cbi5wcm9maWxlLWltZyAuZmlsZSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgbWFyZ2luLXRvcDogLTIwJTtcbiAgICB3aWR0aDogNzAlO1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBib3JkZXItcmFkaXVzOiAwO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBiYWNrZ3JvdW5kOiAjMjEyNTI5Yjg7XG59XG4ucHJvZmlsZS1pbWcgLmZpbGUgaW5wdXQge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBvcGFjaXR5OiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIHRvcDogMDtcbn1cbi5wcm9maWxlLWhlYWQgaDV7XG4gICAgY29sb3I6ICMzMzM7XG59XG4ucHJvZmlsZS1oZWFkIGg2e1xuICAgIGNvbG9yOiAjMDA2MmNjO1xufVxuLnByb2ZpbGUtZWRpdC1idG57XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGJvcmRlci1yYWRpdXM6IDEuNXJlbTtcbiAgICB3aWR0aDogNzAlO1xuICAgIHBhZGRpbmc6IDIlO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgY29sb3I6ICM2Yzc1N2Q7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufVxuLnByb2lsZS1yYXRpbmd7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiAjODE4MTgyO1xuICAgIG1hcmdpbi10b3A6IDUlO1xufVxuLnByb2lsZS1yYXRpbmcgc3BhbntcbiAgICBjb2xvcjogIzQ5NTA1NztcbiAgICBmb250LXNpemU6IDE1cHg7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbi5wcm9maWxlLWhlYWQgLm5hdi10YWJze1xuICAgIG1hcmdpbi1ib3R0b206NSU7XG59XG4ucHJvZmlsZS1oZWFkIC5uYXYtdGFicyAubmF2LWxpbmt7XG4gICAgZm9udC13ZWlnaHQ6NjAwO1xuICAgIGJvcmRlcjogbm9uZTtcbn1cbi5wcm9maWxlLWhlYWQgLm5hdi10YWJzIC5uYXYtbGluay5hY3RpdmV7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGJvcmRlci1ib3R0b206MnB4IHNvbGlkICMwMDYyY2M7XG59XG4ucHJvZmlsZS13b3Jre1xuICAgIHBhZGRpbmc6IDE0JTtcbiAgICBtYXJnaW4tdG9wOiAtMTUlO1xufVxuLnByb2ZpbGUtd29yayBwe1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBjb2xvcjogIzgxODE4MjtcbiAgICBmb250LXdlaWdodDogNjAwO1xuICAgIG1hcmdpbi10b3A6IDEwJTtcbn1cbi5wcm9maWxlLXdvcmsgYXtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgY29sb3I6ICM0OTUwNTc7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICBmb250LXNpemU6IDE0cHg7XG59XG4ucHJvZmlsZS13b3JrIHVse1xuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XG59XG4ucHJvZmlsZS10YWIgbGFiZWx7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbi5wcm9maWxlLXRhYiBwe1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgY29sb3I6ICMwMDYyY2M7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/pages/dashboard/dashboard.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/pages/dashboard/dashboard.component.ts ***!
+  \********************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent() {
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+    };
+    DashboardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-dashboard',
+            template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/pages/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/pages/dashboard/dashboard.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
 
 

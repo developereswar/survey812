@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname+ '/dist'));
+// app.use(express.static(__dirname+ '/dist'));
 
 app.listen(process.env.PORT || 8008);
 

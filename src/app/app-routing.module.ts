@@ -6,9 +6,12 @@ import { TypetestComponent } from './pages/typetest/typetest.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // loyout
 import { DefaultComponent } from './layouts/default/default.component';
+
+
 
 
 const routes: Routes = [
@@ -23,6 +26,10 @@ const routes: Routes = [
       {
         path: 'surveytest',
         component: TypetestComponent
+      },
+      {
+        path:'dashboard',
+        component:DashboardComponent
       }
     ]
   },
@@ -50,5 +57,6 @@ export const Components = [
   RegisterComponent,
   TypetestComponent,
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  DashboardComponent
 ]

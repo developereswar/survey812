@@ -3,7 +3,6 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotalySecretKey');
 var user_controller = {
     createUser(userdata, callback) {
-        console.log(userdata)
         let encryptPassword = cryptr.encrypt(userdata.password);
         userdata.password = encryptPassword;
         delete userdata.cpassword;
