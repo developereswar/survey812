@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!-- Nav tabs -->
         <div class="card border-primary colms">
@@ -17,9 +17,9 @@
             </div>
             <div class="card-body">
                 <div class="tab-content">
-                    <div class="tab-pane  container" id="home">
-                        <div class="container emp-profile">
-                            <div class="card border-secondary mb-3" >
+                    <div class="tab-pane " id="home">
+                        <div class=" emp-profile">
+                            <div class="card border-secondary mb-3">
                                 <div class="card-header">Total Earnings</div>
                                 <div class="card-body">
                                     <table class="table table-hover">
@@ -32,7 +32,7 @@
                                                     Value
                                                 </th>
                                             </tr>
-        
+
                                         </thead>
                                         <tr class="table-light">
                                             <td>
@@ -41,7 +41,7 @@
                                             <td>
                                                 120
                                             </td>
-        
+
                                         </tr>
                                         <tr class="table-light">
                                             <td>
@@ -50,7 +50,7 @@
                                             <td>
                                                 120
                                             </td>
-        
+
                                         </tr>
                                         <tr class="table-light">
                                             <td>
@@ -59,13 +59,13 @@
                                             <td>
                                                 120
                                             </td>
-        
+
                                         </tr>
-        
+
                                     </table>
                                 </div>
-                              </div> 
-                              <div class="card border-secondary mb-3" >
+                            </div>
+                            <div class="card border-secondary mb-3">
                                 <div class="card-header">Your Hit Status</div>
                                 <div class="card-body">
                                     <table class="table table-hover">
@@ -90,7 +90,7 @@
                                                     Earnings
                                                 </th>
                                             </tr>
-        
+
                                         </thead>
                                         <tr class="table-light">
                                             <td>
@@ -152,16 +152,123 @@
                                                 120
                                             </td>
                                         </tr>
-        
+
                                     </table>
                                 </div>
-                              </div> 
-                             
-                            
+                            </div>
+
+
                         </div>
                     </div>
-                    <div class="tab-pane container active" id="menu1"> you clicked Hits...</div>
-                    <div class="tab-pane container" id="menu2"> you clicked Qualifications...</div>
+                    <div class="tab-pane  active" id="menu1">
+
+                        <div class="col-one">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Submitted</th>
+                                        <th>Approved</th>
+                                        <th>Rejected</th>
+                                        <th>Pending</th>
+                                        <th>Earnings</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-light">
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            You have no HIT activity within the last 45 days
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                          </tr> -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-two">
+                            <h4>
+                                HITs Overview
+                            </h4>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Approved
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Approval Rate
+                                    <span class="badge badge-primary badge-pill">0.00%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Pending
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Rejected
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Rejection Rate
+                                    <span class="badge badge-primary badge-pill">0.00%</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="menu2">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Qualification</th>
+                                    <th>Your value</th>
+                                    <th>Author</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-light">
+                                <tr>
+                                    <td>
+                                        <span style="cursor:pointer" data-toggle="collapse" data-target="#demo">
+                                                HIT abandonment rate (%)
+                                            </span>
+                                    </td>
+                                    <td>
+                                        <span style="cursor:pointer" data-toggle="collapse" data-target="#demo">
+                                        0
+                                    </span>
+                                    </td>
+                                    <td>
+                                        <span style="cursor:pointer" data-toggle="collapse" data-target="#demo">
+                                                Amazon Mechanical Turk
+                                            </span>
+                                    </td>
+
+                                </tr>
+                                <tr id="demo" class="collapse cols">
+                                    <td > 
+                                            Description
+                                            This Qualification is generated automatically and reflects the percentage of HITs which you have accepted but which have expired before you submitted an answer divided by the total number of HITs you have accepted. Your score is a value between 0 and 100. A score of 0 indicates that you have not allowed any HITs to expire before you have submitted an answer for them.
+                                    </td>
+                                    <td>
+                                            Assigned Date
+                                            12/03/2018
+                                          
+                                    </td>
+                                    <td>
+                                          
+                                            Retry Available
+                                            No
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>

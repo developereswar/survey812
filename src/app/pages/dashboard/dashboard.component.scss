@@ -115,3 +115,25 @@
     font-weight: 600;
     color: #0062cc;
 }
+
+.container-fluid{
+    // float: left;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.col-one{
+    float: left;
+    width: 70%;
+    padding: 0px 15px;
+}
+
+.col-two{
+    float: left;
+    width: 30%;
+}
+
+.badge{
+    padding: 7px;
+    font-size: 14px;
+}
