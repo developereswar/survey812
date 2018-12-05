@@ -8,22 +8,21 @@
     <div class="col-md-12 card" style="padding:0;">
       <div class="card-header">
         <div class="row">
-            <div class="col-md-10" *ngIf="timeout">
+            <!-- <div class="col-md-10" *ngIf="timeout">
               <h5>
                 Press Start Button TO Start Your Test
               </h5>
-            </div>
-              <div class="col-md-2" *ngIf="timeout">
+            </div> -->
+              <div class="col-md-12 text-center" *ngIf="timeout">
                   <button class="btn btn-success" (click)="testfunc('start')" >Start Test</button>
                 </div>
-          <div class="col-md-6"  *ngIf="!timeout">
+          <div class="col-md-12 text-center"  *ngIf="!timeout">
               <button type="button" class="btn btn-primary btn-lg">
                   Timer :  <span class="badge badge-light">{{sec}}</span>
                 </button>
-          </div>
-          <div class="col-md-6 float-right text-right"  *ngIf="!timeout">
-            <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button> &nbsp;
-            <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button>
+                &nbsp;
+            <button class="btn btn-success" (click)="submitTest()" *ngIf="!timeout">Submit</button> 
+            <!-- <button class="btn btn-danger" (click)="testfunc('stop')" *ngIf="!timeout">Cancel Test</button> -->
           </div>
         </div>
       </div>
